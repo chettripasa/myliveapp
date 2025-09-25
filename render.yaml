@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: myliveapp-monorepo
+    env: docker
+    plan: starter
+    repo: https://github.com/chettripasa/myliveapp
+    dockerfilePath: ./infra/docker-compose.yml
+    envVars:
+      - key: DATABASE_URL
+        value: postgres://renderuser:renderpass@dpg-xxxxxx.render.com:5432/myliveapp
+      - key: REDIS_URL
+        value: rediss://red-cxxxxxx:password@redis-xxxxxx.cxx.use1.cache.amazonaws.com:6379
+      - key: JWT_SECRET
+        value: supersecretjwtkey
+      - key: JWT_REFRESH_SECRET
+        value: supersecretrefreshkey

@@ -1,0 +1,6 @@
+FROM node:20-alpine
+WORKDIR /app
+COPY ../admin/package*.json ./
+RUN npm install
+COPY ../admin .
+CMD ["npm", "run", "dev", "--", "--host"]
